@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel Legacy | News</title>
+  <meta name="description" content="Cập nhật tin tức công nghệ mới nhất về Intel, trí tuệ nhân tạo và các đột phá công nghệ định hình tương lai. Dữ liệu trực tiếp từ NewsAPI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Access/Css/variables.css" />
+  <link rel="stylesheet" href="Access/Css/header.css" />
+  <link rel="stylesheet" href="Access/Css/footer.css" />
+  <link rel="stylesheet" href="Access/Css/news.css" />
+</head>
+<body>
+  <!-- Global Navigation Setup similar to Journey/Team -->
+  <nav id="globalNavbar" class="global-navbar scrolled">
+    <div class="nav-container">
+      <div class="brand"><a href="index.html">Intel Legacy</a></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="journey.html" class="nav-link">Journey</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="news.html" class="nav-link active">News</a>
+        <a href="auth.html" class="nav-link login-btn-nav">Portal</a>
+      </div>
+      <button class="hamburger" id="hamburgerMenu" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="page-shell">
+    <header class="news-header">
+      <span class="eyebrow mono">Live Feed</span>
+      <h1>Công nghệ & Đổi mới</h1>
+      <p class="lede">Cập nhật những chuyển động mới nhất về hệ sinh thái Intel, kỷ nguyên trí tuệ nhân tạo (AI) và các đột phá công nghệ định hình tương lai.</p>
+    </header>
+
+    <section class="controls-container">
+      <div class="search-bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Khám phá từ khóa công nghệ, ví dụ: 'Chip', 'OpenAI'..." />
+        <button id="searchBtn" class="search-btn">Tìm kiếm</button>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="Intel">Intel</button>
+        <button class="filter-btn" data-filter="Trí tuệ nhân tạo OR AI">Trí tuệ nhân tạo</button>
+        <button class="filter-btn" data-filter="Công nghệ">Công nghệ</button>
+      </div>
+    </section>
+
+    <!-- The grid will be populated dynamically by JavaScript -->
+    <section class="news-grid" id="newsGrid">
+      <div class="status-msg">
+        <div class="spinner"></div>
+        <p class="mono">Đang khởi tạo kết nối vệ tinh...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-content">
+      <div class="footer-stack">
+        <span class="brand-name mono">Intel Legacy</span>
+        <span class="university-name">Đại học Lạc Hồng</span>
+        <span class="group-name mono">Nhóm Phát Triển: aesieunhan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Access/Js/LocalStorage/db.js"></script>
+  <script src="Access/Js/config.js"></script>
+  <script src="Access/Js/header.js"></script>
+  <script src="Access/Js/footer.js"></script>
+  <script src="Access/Js/news.js"></script>
+</body>
+</html>

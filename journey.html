@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel Legacy — Journey</title>
+  <meta name="description" content="Hành trình 5 thập kỷ của Intel: từ vi xử lý 4-bit Intel 4004 (1971) đến kiến trúc Hybrid AI PC Lunar Lake (2025). Khám phá 20 cột mốc công nghệ định hình thế giới." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Access/Css/variables.css" />
+  <link rel="stylesheet" href="Access/Css/tailwind-compiled.css" />
+  <link rel="stylesheet" href="Access/Css/header.css" />
+  <link rel="stylesheet" href="Access/Css/footer.css" />
+  <link rel="stylesheet" href="Access/Css/journey.css" />
+</head>
+<body class="bg-obsidian text-slate-100 pt-20">
+  <nav id="globalNavbar" class="global-navbar">
+    <div class="nav-container">
+      <div class="brand"><a href="index.html">Intel Legacy</a></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="journey.html" class="nav-link">Journey</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="auth.html" class="nav-link login-btn-nav">Portal</a>
+      </div>
+      <button class="hamburger" id="hamburgerMenu" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <main class="relative">
+    <section class="relative h-[120vh] flex items-center justify-center px-6 lg:px-12">
+      <div class="max-w-5xl mx-auto text-center space-y-6">
+        <p class="text-sm tracking-[0.35em] text-intelCyan uppercase font-light">Intel Legacy</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]">Intel: 5 Thập kỷ Khai phóng Giới hạn</h1>
+        <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light">
+          Một hành trình xuyên suốt qua những kiến trúc đã thay đổi cách thế giới vận hành. Chứng kiến sự tiến hóa từ những vi mạch 4-bit sơ khai đến các cấu trúc Hybrid tối ưu cho kỷ nguyên trí tuệ nhân tạo
+        </p>
+        <p class="text-sm md:text-base text-slate-200 font-mono hardcore-glass inline-flex items-center px-4 py-2 rounded-full border border-white/10">
+          Hãy cuộn để ngược dòng thời gian và chứng kiến sự hội tụ của công nghệ và di sản.
+        </p>
+      </div>
+    </section>
+
+    <section id="journey" class="relative">
+      <div class="sticky top-0 h-screen overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,242,255,0.14),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(0,102,255,0.16),transparent_42%),radial-gradient(circle_at_50%_70%,rgba(0,0,0,0.6),transparent_58%)]"></div>
+          <div class="absolute inset-0 flex justify-center">
+            <div class="w-px h-full focus-line"></div>
+          </div>
+        </div>
+
+        <div class="relative z-10 flex flex-col h-full pt-[88px]">
+          <div class="flex items-center justify-end px-6 lg:px-12 pt-2">
+            <div id="eraBadge" class="hardcore-glass px-4 py-2 rounded-full border border-white/10 text-sm font-semibold text-white">Kỷ nguyên Khai sinh (1971–1982)</div>
+          </div>
+
+          <div class="flex-1 flex items-center">
+            <div class="w-full h-full overflow-visible px-6 lg:px-12">
+              <div id="cardTrack" class="flex gap-8 lg:gap-12 will-change-transform" style="transform: translateX(0);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-content">
+      <div class="footer-stack">
+        <span class="brand-name mono">Intel Legacy</span>
+        <span class="university-name">Đại học Lạc Hồng</span>
+        <span class="group-name mono">Nhóm Phát Triển: aesieunhan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Access/Js/LocalStorage/db.js"></script>
+  <script src="Access/Js/header.js"></script>
+  <script src="Access/Js/footer.js"></script>
+  <script src="Access/Js/journey.js"></script>
+</body>
+</html>

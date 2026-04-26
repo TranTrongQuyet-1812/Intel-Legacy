@@ -1,0 +1,50 @@
+/* Access/Css/footer.css */
+.global-footer {
+  width: 100%;
+  padding: 40px 5%;
+  background: linear-gradient(to top, rgba(0, 242, 255, 0.05), var(--obsidian));
+  border-top: 1px solid rgba(0, 242, 255, 0.15);
+  margin-top: auto;
+  font-family: var(--sans);
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.global-footer .footer-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.global-footer .footer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.global-footer .brand-name {
+  font-size: 20px;
+  color: var(--intel-cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 0 16px rgba(0, 242, 255, 0.4);
+}
+
+.global-footer .university-name {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.global-footer .group-name {
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}

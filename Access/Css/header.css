@@ -1,0 +1,162 @@
+/* Access/Css/header.css */
+/* Navbar toàn cục — được load trên mọi trang */
+/* Design tokens đã được khai báo trong variables.css */
+
+
+/* Navbar container */
+.global-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 999;
+  padding: 18px 44px;
+  background: transparent;
+  transition: all 0.5s ease;
+  font-family: var(--sans);
+}
+
+.global-navbar.scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.global-navbar .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.global-navbar .brand a {
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--intel-cyan);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: opacity 0.3s;
+}
+
+.global-navbar .brand a:hover {
+  opacity: 0.8;
+}
+
+.global-navbar .nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.global-navbar .nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.global-navbar .nav-link:hover,
+.global-navbar .nav-link.active {
+  color: var(--intel-cyan);
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  transform-origin: left center;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .global-navbar {
+    padding: 14px 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .global-navbar .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen */
+    width: 250px;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 30px 30px;
+    gap: 25px;
+    transition: right 0.4s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .global-navbar .nav-links.active {
+    right: 0;
+  }
+  
+  .global-navbar .nav-link {
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Hamburger Animation when Active */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(-2px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(2px);
+  }
+}
+
+/* Page Transitions */
+body {
+  opacity: 0;
+  animation: pageFadeIn 0.6s ease-out forwards;
+}
+
+body.page-exit {
+  animation: pageFadeOut 0.4s ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pageFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

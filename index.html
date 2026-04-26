@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel Legacy</title>
+  <meta name="description" content="Intel Legacy — Khám phá hệ sinh thái sản phẩm Intel: GPU Arc, CPU Core Ultra và AI Accelerator Gaudi. Trải nghiệm scrollytelling canvas 4K tương tác." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="Access/Css/variables.css" />
+  <link rel="stylesheet" href="Access/Css/header.css" />
+  <link rel="stylesheet" href="Access/Css/footer.css" />
+  <link rel="stylesheet" href="Access/Css/index.css" />
+</head>
+
+<body>
+  <div id="loadingScreen" class="loading-screen hardcore-glass">
+    <div class="loader-wrap">
+      <p class="mono">Đang tải khung hình</p>
+      <div class="progress">
+        <div id="loadingBar"></div>
+      </div>
+      <p id="loadingText" class="mono sub">0%</p>
+    </div>
+  </div>
+
+  <canvas id="productCanvas"></canvas>
+
+  <nav id="globalNavbar" class="global-navbar">
+    <div class="nav-container">
+      <div class="brand"><a href="index.html">Intel Legacy</a></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="journey.html" class="nav-link">Journey</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="auth.html" class="nav-link login-btn-nav">Portal</a>
+      </div>
+      <button class="hamburger" id="hamburgerMenu" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="tab-grid" id="productTabs">
+      <button class="tab-card hardcore-glass active" data-product="arc">
+        <span class="mono">GPU</span>
+        <strong>Intel Arc</strong>
+        <p>Ray tracing, XeSS, AV1 encode.</p>
+      </button>
+      <button class="tab-card hardcore-glass" data-product="cpu">
+        <span class="mono">CPU</span>
+        <strong>Intel Core Ultra</strong>
+        <p>Hybrid core, AI boost, tối ưu năng lượng.</p>
+      </button>
+      <button class="tab-card hardcore-glass" data-product="gaudi">
+        <span class="mono">AI</span>
+        <strong>Intel Gaudi</strong>
+        <p>Tăng tốc LLM, huấn luyện tối ưu chi phí.</p>
+      </button>
+    </div>
+
+    <div class="overlay" id="overlay1"></div>
+    <div class="overlay" id="overlay2"></div>
+    <div class="overlay" id="overlay3"></div>
+  </header>
+
+  <div id="heroSpacer"></div>
+
+  <main class="content">
+    <section id="intro" class="section hardcore-glass reveal">
+      <p id="productLabel" class="eyebrow mono"></p>
+      <h1 id="productTitle"></h1>
+      <p id="productSummary" class="lede"></p>
+      <div id="featureList" class="feature-list"></div>
+    </section>
+
+    <section id="specs" class="section hardcore-glass reveal">
+      <div class="section-head">
+        <p class="eyebrow mono">Thông số nhanh</p>
+        <h2>Những con số nổi bật</h2>
+      </div>
+      <div id="specGrid" class="spec-grid"></div>
+    </section>
+
+    <section id="cta" class="section hardcore-glass reveal">
+      <div class="cta-body">
+        <div>
+          <p class="eyebrow mono">Thiết kế theo chuẩn Intel</p>
+          <h2>Sẵn sàng tích hợp vào pipeline của bạn</h2>
+          <p class="lede">Tối ưu cho studio game, lab AI và đội triển khai hạ tầng đám mây. Kết nối API, driver và hệ
+            sinh thái phần mềm của Intel.</p>
+        </div>
+        <div class="cta-metrics">
+          <div class="metric">
+            <span class="mono">Canvas Ready</span>
+            <strong>Hiển thị 4K</strong>
+          </div>
+          <div class="metric">
+            <span class="mono">Latency</span>
+            <strong>
+              < 16ms</strong>
+          </div>
+          <div class="metric">
+            <span class="mono">SDK</span>
+            <strong>Xe, oneAPI</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-content">
+      <div class="footer-stack">
+        <span class="brand-name mono">Intel Legacy</span>
+        <span class="university-name">Đại học Lạc Hồng</span>
+        <span class="group-name mono">Nhóm Phát Triển: aesieunhan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Access/Js/LocalStorage/db.js"></script>
+  <script src="Access/Js/header.js"></script>
+  <script src="Access/Js/footer.js"></script>
+  <script src="Access/Js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel Legacy | Portal</title>
+  <meta name="description" content="Đăng nhập hoặc đăng ký tài khoản Intel Legacy Portal. Truy cập hệ sinh thái công nghệ Intel và nhận thông tin sớm nhất." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Access/Css/variables.css" />
+  <link rel="stylesheet" href="Access/Css/header.css" />
+  <link rel="stylesheet" href="Access/Css/footer.css" />
+  <link rel="stylesheet" href="Access/Css/auth.css" />
+</head>
+<body>
+  <nav id="globalNavbar" class="global-navbar scrolled">
+    <div class="nav-container">
+      <div class="brand"><a href="index.html">Intel Legacy</a></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="journey.html" class="nav-link">Journey</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="auth.html" class="nav-link active login-btn-nav">Portal</a>
+      </div>
+      <button class="hamburger" id="hamburgerMenu" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="auth-shell">
+    <div class="auth-container hardcore-glass">
+      
+      <!-- Toggle Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-target="loginForm">Đăng Nhập</button>
+        <button class="auth-tab" data-target="registerForm">Đăng Ký</button>
+        <div class="tab-indicator"></div>
+      </div>
+
+      <!-- General Notification Area -->
+      <div id="authNotification" class="auth-notification hidden mono"></div>
+
+      <div class="auth-panels">
+        <!-- Login Panel -->
+        <form id="loginForm" class="auth-panel active">
+          <div class="auth-header">
+            <h2>Welcome Back</h2>
+            <p class="lede">Truy cập vào hệ sinh thái Intel Legacy.</p>
+          </div>
+          <div class="input-group">
+            <label for="loginEmail" class="mono">Email</label>
+            <input type="email" id="loginEmail" placeholder="developer@intel.com" autocomplete="email" />
+            <span class="error-msg mono" id="err-loginEmail"></span>
+          </div>
+          <div class="input-group">
+            <label for="loginPassword" class="mono">Mật khẩu</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" />
+            <span class="error-msg mono" id="err-loginPassword"></span>
+          </div>
+          <button type="submit" class="auth-submit-btn">Đăng Nhập <span class="spinner-btn hidden"></span></button>
+        </form>
+
+        <!-- Register Panel -->
+        <form id="registerForm" class="auth-panel">
+          <div class="auth-header">
+            <h2>Create Account</h2>
+            <p class="lede">Ghi danh để nhận thông tin công nghệ sớm nhất.</p>
+          </div>
+          <div class="input-group">
+            <label for="regName" class="mono">Họ Tên</label>
+            <input type="text" id="regName" placeholder="Nguyễn Văn A" autocomplete="name" />
+            <span class="error-msg mono" id="err-regName"></span>
+          </div>
+          <div class="input-group">
+            <label for="regEmail" class="mono">Email</label>
+            <input type="email" id="regEmail" placeholder="developer@intel.com" autocomplete="email" />
+            <span class="error-msg mono" id="err-regEmail"></span>
+          </div>
+          <div class="input-group">
+            <label for="regPassword" class="mono">Mật khẩu</label>
+            <input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password" />
+            <span class="error-msg mono" id="err-regPassword"></span>
+          </div>
+          <div class="input-group">
+            <label for="regConfirm" class="mono">Xác nhận mật khẩu</label>
+            <input type="password" id="regConfirm" placeholder="Nhập lại mật khẩu" autocomplete="new-password" />
+            <span class="error-msg mono" id="err-regConfirm"></span>
+          </div>
+          <button type="submit" class="auth-submit-btn">Đăng Ký Khởi Tạo <span class="spinner-btn hidden"></span></button>
+        </form>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- Logged in state UI (hidden by default) -->
+  <main id="dashboardShell" class="auth-shell hidden">
+    <div class="auth-container hardcore-glass">
+      <div class="auth-header" style="text-align: center;">
+        <p class="eyebrow mono" style="color: #00f2ff;">XÁC THỰC THÀNH CÔNG</p>
+        <h2>System Online</h2>
+        <p class="lede" style="margin-top: 10px;">Chào mừng <strong id="userDisplayName" style="color: #fff;"></strong> đã tham gia hệ sinh thái.</p>
+        <button id="logoutBtn" class="auth-submit-btn" style="margin-top: 24px; background: rgba(255,51,102,0.1); border-color: rgba(255,51,102,0.4);">Đăng Xuất Mạng Lưới</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-content">
+      <div class="footer-stack">
+        <span class="brand-name mono">Intel Legacy</span>
+        <span class="university-name">Đại học Lạc Hồng</span>
+        <span class="group-name mono">Nhóm Phát Triển: aesieunhan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Access/Js/LocalStorage/db.js"></script>
+  <script src="Access/Js/header.js"></script>
+  <script src="Access/Js/footer.js"></script>
+  <script src="Access/Js/auth.js"></script>
+</body>
+</html>

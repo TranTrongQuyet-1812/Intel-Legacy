@@ -1,0 +1,81 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════╗
+ *  DESIGN TOKENS — Intel Legacy
+ *  File duy nhất chứa tất cả biến CSS (design tokens).
+ *  Được load ĐẦU TIÊN trên mọi trang.
+ *  → Đảm bảo tính nhất quán về màu sắc, font chữ xuyên suốt.
+ * ╚══════════════════════════════════════════════════════════════╝
+ */
+
+:root {
+  /* ── Bảng màu chính ──────────────────────────────── */
+  --obsidian: #050505;           /* Nền tối chủ đạo */
+  --intel-cyan: #00f2ff;         /* Accent chính — neon cyan */
+  --accent: #0066ff;             /* Accent phụ — gradient, link */
+
+  /* ── Bề mặt kính (Glassmorphism) ─────────────────── */
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-bg: rgba(10, 10, 10, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+
+  /* ── Typography ──────────────────────────────────── */
+  --text: #e8f9ff;               /* Chữ chính (sáng) */
+  --muted: #8aa1b2;              /* Chữ phụ (xám xanh) */
+  --mono: "Space Mono", monospace;
+  --sans: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* ── Color scheme ────────────────────────────────── */
+  color-scheme: dark;
+}
+
+/* ── Global Reset ─────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base Body ────────────────────────────────────── */
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--obsidian);
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Shared Utility Classes ───────────────────────── */
+.mono {
+  font-family: var(--mono);
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--intel-cyan);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.lede {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.sub {
+  color: var(--muted);
+}
+
+/* ── Hardcore Glassmorphism ───────────────────────── */
+.hardcore-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
