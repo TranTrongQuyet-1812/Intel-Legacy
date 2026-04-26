@@ -60,18 +60,46 @@ async function fetchNews(query) {
   `;
 
   try {
-    const encodedQuery = encodeURIComponent(query);
-    const targetUrl = `${BASE_URL}?q=${encodedQuery}&language=vi&sortBy=publishedAt&pageSize=12&apiKey=${API_KEY}`;
+    // [BẢN PORTFOLIO] Giả lập API Data để tránh lỗi CORS trên GitHub Pages
+    // (NewsAPI bản miễn phí đã chủ động chặn hầu hết các Public Proxy)
+    await new Promise(r => setTimeout(r, 800)); // Fake delay
     
-    // Dùng Proxy CORS trung gian để vượt rào trên GitHub Pages
-    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`;
-    const response = await fetch(proxyUrl);
-    
-    if (!response.ok) {
-      throw new Error(`Lỗi kết nối API/Proxy: ${response.status} - NewsAPI có thể đang quá tải hoặc Proxy bị chặn.`);
-    }
-
-    const data = await response.json();
+    const data = {
+      articles: [
+        {
+          title: "Intel Core Ultra ra mắt: Kỷ nguyên AI PC bắt đầu với sức mạnh NPU đột phá",
+          description: "Intel chính thức giới thiệu dòng vi xử lý Core Ultra mới nhất, tích hợp trực tiếp NPU giúp xử lý mượt mà các tác vụ AI ngay trên laptop.",
+          url: "#",
+          urlToImage: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Intel Newsroom" }
+        },
+        {
+          title: "GPU Intel Arc Battlemage hứa hẹn khuynh đảo thị trường gaming tầm trung",
+          description: "Thế hệ card đồ họa thứ 2 của Intel đang nhận được nhiều sự kỳ vọng từ cộng đồng game thủ nhờ hiệu năng cải thiện và giá thành hấp dẫn.",
+          url: "#",
+          urlToImage: "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=800&q=80",
+          publishedAt: new Date(Date.now() - 86400000).toISOString(),
+          source: { name: "Tech Radar" }
+        },
+        {
+          title: "Trí tuệ nhân tạo tạo sinh: Cơ hội vàng cho hệ sinh thái công nghệ Việt Nam",
+          description: "Sự kiện công nghệ thường niên nhấn mạnh tầm quan trọng của việc làm chủ công nghệ AI tạo sinh trong môi trường doanh nghiệp hiện đại.",
+          url: "#",
+          urlToImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
+          publishedAt: new Date(Date.now() - 172800000).toISOString(),
+          source: { name: "VNExpress Tech" }
+        },
+        {
+          title: "Intel Gaudi 3: Đối trọng mới trong cuộc đua phần cứng AI doanh nghiệp",
+          description: "Chip tăng tốc AI mới nhất của Intel cho thấy hiệu năng huấn luyện mô hình ngôn ngữ lớn (LLM) vượt trội so với các đối thủ cùng phân khúc.",
+          url: "#",
+          urlToImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+          publishedAt: new Date(Date.now() - 259200000).toISOString(),
+          source: { name: "The Verge" }
+        }
+      ]
+    };
 
     if (data.articles && data.articles.length > 0) {
       // Filter out removed articles
