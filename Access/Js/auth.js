@@ -141,27 +141,21 @@ registerForm.addEventListener("submit", async (e) => {
   const GOOGLE_APP_SCRIPT_URL = APP_CONFIG.GOOGLE_SHEET_API;
 
   try {
-    // 1. Kiểm tra Email trùng lặp trên Google Sheets
-    const checkRes = await fetch(`${GOOGLE_APP_SCRIPT_URL}?action=checkEmail&email=${encodeURIComponent(email)}`);
-    const checkData = await checkRes.json();
+    // [BẢN PORTFOLIO] Giả lập Server Delay
+    await simulateNetwork(1500);
 
-    if (checkData.exists) {
+    // Lưu vào LocalStorage (Mock DB)
+    let users = JSON.parse(localStorage.getItem("mock_users") || "[]");
+    const exists = users.find(u => u.email === email);
+
+    if (exists) {
       toggleBtnLoading(submitBtn, false);
-      showNotification("Email này đã được ghi danh trong hệ thống (Google Sheets).", "error");
+      showNotification("Email này đã được ghi danh trong hệ thống.", "error");
       return;
     }
 
-    // 2. Nếu không trùng, Gửi thông tin đăng ký
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("password", password);
-
-    // Không cần dùng no-cors vì Script đã trả về chuẩn JSON
-    await fetch(GOOGLE_APP_SCRIPT_URL, {
-      method: "POST",
-      body: formData
-    });
+    users.push({ name, email, password });
+    localStorage.setItem("mock_users", JSON.stringify(users));
 
     toggleBtnLoading(submitBtn, false);
     showNotification("Ghi danh thành công! Vui lòng Đăng Nhập.", "success");
@@ -173,7 +167,7 @@ registerForm.addEventListener("submit", async (e) => {
     }, 2000);
   } catch (err) {
     toggleBtnLoading(submitBtn, false);
-    showNotification("Lỗi kết nối tới máy chủ.", "error");
+    showNotification("Lỗi hệ thống.", "error");
     console.error(err);
   }
 });
@@ -206,23 +200,25 @@ loginForm.addEventListener("submit", async (e) => {
   const GOOGLE_APP_SCRIPT_URL = APP_CONFIG.GOOGLE_SHEET_API;
 
   try {
-    // FETCH Xác thực lên Google Sheets
-    const res = await fetch(`${GOOGLE_APP_SCRIPT_URL}?action=login&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
-    const data = await res.json();
+    // [BẢN PORTFOLIO] Giả lập Server Delay
+    await simulateNetwork(1200);
+
+    let users = JSON.parse(localStorage.getItem("mock_users") || "[]");
+    const user = users.find(u => u.email === email && u.password === password);
 
     toggleBtnLoading(submitBtn, false);
 
-    if (data.success) {
+    if (user) {
       if (typeof db !== 'undefined') {
-        db.setSession(data.user);
+        db.setSession({ name: user.name, email: user.email });
         checkAuthSession();
       }
     } else {
-      showNotification("Sai tài khoản hoặc mật khẩu hệ thống theo Google Sheets.", "error");
+      showNotification("Sai tài khoản hoặc mật khẩu.", "error");
     }
   } catch (err) {
     toggleBtnLoading(submitBtn, false);
-    showNotification("Lỗi cấu hình CSDL Google Sheets, hoặc API bị chặn.", "error");
+    showNotification("Lỗi hệ thống.", "error");
     console.error(err);
   }
 });
